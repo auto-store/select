@@ -1,0 +1,10 @@
+- name: Create SVM
+  na_ontap_svm:
+    state: "{{ item.State  }}"
+    name: "{{ item.svm_name }}" 
+    root_volume_aggregate: "{{ aggregate_name }}" 
+    allowed_protocols: "{{ protocols }}" 
+    hostname: "{{ netapp_hostname }}"
+    username: "{{ netapp_username }}"
+    password: "{{ netapp_password }}"
+  with_items: "{{ SVMs }}"

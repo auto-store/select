@@ -1,0 +1,23 @@
+# default vars
+#-----> Aggregate Setup
+disk_count: 1
+
+#-----> LIF Setup: File
+admin_status: up
+LIF_netmask: 255.255.255.0
+LIF_home_port: e0a 
+LIF_home_node: Select-1-Node-01 
+LIF_Role: data
+firewall_policy: mgmt
+# failover_policy: local-only
+# is_auto_revert: true
+
+#-----> SVM
+root_volume_security_style: mixed
+root_volume: root
+admin_status: up
+protocols: nfs,iscsi 
+
+#-----> LUN
+ostype: linux 
+size_unit: gb

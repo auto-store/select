@@ -1,0 +1,15 @@
+- name: Create file data LIF
+  na_ontap_interface:
+    state: "{{ item.LIF_State }}" 
+    interface_name: "{{ item.LIF_Name }}" 
+    home_port: "{{ LIF_home_port }}" 
+    home_node: "{{ LIF_home_node }}" 
+    role: "{{ LIF_Role }}"
+    protocols: "{{ item.LIF_Protocol }}"
+    address: "{{ item.LIF_IP }}"
+    netmask: "{{ LIF_netmask }}"
+    vserver: "{{ item.svm_lif }}" 
+    hostname: "{{ netapp_hostname }}"
+    username: "{{ netapp_username }}"
+    password: "{{ netapp_password }}"
+  with_items: "{{ Create_LIFS }}" 

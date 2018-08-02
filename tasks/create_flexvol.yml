@@ -1,0 +1,20 @@
+- name: Create FlexVols 
+  na_ontap_volume:
+    state: present
+    name: "{{ item.Name }}"    
+    is_infinite: False
+    aggregate_name: "{{ aggregate_name }}"
+    size: "{{ item.Size }}"
+    size_unit: gb         
+    vserver: "{{ item.Which_SVM }}" 
+    hostname: "{{ netapp_hostname }}"
+    username: "{{ netapp_username }}"
+    password: "{{ netapp_password }}"
+  with_items: "{{ Volumes }}"
+       
+        
+      
+        
+        
+      
+     

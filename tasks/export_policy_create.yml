@@ -1,0 +1,15 @@
+- name: Create ExportPolicyRule
+  na_ontap_export_policy_rule:
+    state: present
+    policy_name: All
+    vserver: "{{ item.svm_name }}" 
+    client_match: 0.0.0.0/0
+    ro_rule: any
+    rw_rule: any
+    protocol: any
+    super_user_security: any
+    allow_suid: true
+    hostname: "{{ netapp_hostname }}"
+    username: "{{ netapp_username }}"
+    password: "{{ netapp_password }}"
+  with_items: "{{ SVMs }}"   

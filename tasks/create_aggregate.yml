@@ -1,0 +1,10 @@
+- name: Create Aggregates
+  na_ontap_aggregate:
+    state: present
+    service_state: "{{ state }}" 
+    name: "{{ aggregate_name }}" 
+    disk_count: "{{ disk_count }}"
+    hostname: "{{ netapp_hostname }}"
+    username: "{{ netapp_username }}"
+    password: "{{ netapp_password }}"
+    

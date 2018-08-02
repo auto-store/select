@@ -1,0 +1,14 @@
+- name: Create LUN
+  na_ontap_lun:
+    state: "{{ item.Lun_State }}" 
+    name: "{{ item.Lun_Name }}" 
+    flexvol_name: "{{ item.Lun_Volume }}" 
+    vserver: "{{ item.Lun_SVM_Name }}" 
+    size: "{{ item.Lun_Size }}"
+    size_unit: "{{ size_unit }}" 
+    ostype: "{{ ostype }}"
+    space_reserve: false 
+    hostname: "{{ netapp_hostname }}"
+    username: "{{ netapp_username }}"
+    password: "{{ netapp_password }}"
+  with_items: "{{ Luns }}" 

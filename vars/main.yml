@@ -1,0 +1,64 @@
+#-----> Create Aggregate
+aggregate_name: node1_Aggr1
+state: online  
+        
+#-----> Create Storage Servers 
+SVMs: 
+    - { svm_name: SVM1, 
+        State: present }
+        
+    - { svm_name: SVM2,
+        State: present }
+  
+#-----> Create Volumes
+Volumes:
+    - { Name: VOL12, 
+        Size: 100,
+        Which_SVM: SVM1 }
+        
+    - { Name: VOL13, 
+        Size: 100, 
+        Which_SVM: SVM2 }
+        
+    - { Name: VOL14, 
+        Size: 100, 
+        Which_SVM: SVM2 }
+    
+#-----> Create LUNs
+Luns: 
+    - { Lun_Name: iSCSI-Lun,
+        Lun_State: present,
+        Lun_Volume: VOL12,
+        Lun_Size: 100,        
+        Lun_SVM_Name: SVM1 }
+        
+    - { Lun_Name: LUN2,
+        Lun_State: present,
+        Lun_Volume: VOL13,
+        Lun_Size: 100,        
+        Lun_SVM_Name: SVM2 }
+    
+#-----> Create Logical Interfaces (LIFs) 
+Create_LIFS:
+
+  - { LIF_Name: B,
+      LIF_State: present,   
+      LIF_IP: 192.168.55.99, 
+      LIF_Protocol: iscsi,nfs, 
+      svm_lif: SVM1,SVM2 }
+      
+  - { LIF_Name: A,
+      LIF_State: present,  
+      LIF_IP: 192.168.55.98, 
+      LIF_Protocol: nfs, 
+      svm_lif: SVM1 }
+    
+#-----> CIFS Setup
+cifs_domain: 
+cifs_workgroup: 
+
+#-----> Vaulted Credentials 
+netapp_hostname: 10.67.8.47
+netapp_username: admin
+netapp_password: 
+...

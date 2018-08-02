@@ -1,0 +1,12 @@
+---
+ # - import_tasks: ha.yml
+ - import_tasks: create_aggregate.yml
+ - import_tasks: svm.yml
+ - import_tasks: lifs.yml
+ - import_tasks: svm_protocol.yml
+ #- import_tasks: service_nfs.yml
+ #- import_tasks: service_iscsi.yml
+ # - import_tasks: lif_file.yml
+ - import_tasks: create_flexvol.yml
+ - import_tasks: export_policy_create.yml
+ - import_tasks: create_lun.yml
