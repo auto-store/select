@@ -1,4 +1,4 @@
-- name: Create LUN
+- name: Create LUNs
   na_ontap_lun:
     state: "{{ item.Lun_State }}" 
     name: "{{ item.Lun_Name }}" 
