@@ -1,4 +1,4 @@
-- name: Create Aggregates
+- name: Create Aggregate
   na_ontap_aggregate:
     state: present
     service_state: "{{ state }}" 
