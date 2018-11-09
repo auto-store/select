@@ -7,8 +7,6 @@ SVMs:
     - { svm_name: SVM1, 
         State: present }
         
-    - { svm_name: SVM2,
-        State: present }
   
 #-----> Create Volumes
 Volumes:
