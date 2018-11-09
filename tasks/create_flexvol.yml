@@ -1,4 +1,4 @@
-- name: Create FlexVols 
+- name: Create FlexVol 
   na_ontap_volume:
     state: present
     name: "{{ item.Name }}"    
